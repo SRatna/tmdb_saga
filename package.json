@@ -1,0 +1,29 @@
+{
+  "name": "omdb-saga",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "eslint-config-airbnb": "^16.1.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.0",
+    "react-youtube": "^7.5.0",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.16.0",
+    "semantic-ui-css": "^2.2.14",
+    "semantic-ui-react": "^0.78.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "prettier": "^1.10.2"
+  }
+}
