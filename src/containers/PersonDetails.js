@@ -41,6 +41,7 @@ class PersonDetails extends Component {
       let movies = movieCast > movieCrew ? movieCast : movieCrew;
       if (movies) {
         movies.sort((a, b) => (b.vote_count - a.vote_count));
+        movies = movies.filter((movie, index) => movies.map(mapMovie => mapMovie['id']).indexOf(movie['id']) === index);
         firstEightMovies = movies.slice(0, 8);
       }
     }

@@ -31,7 +31,7 @@ const Filmography = ({ movieCast, movieCrew }) => {
                 movieCrew.map(movie => {
                   if (movie.department === department) {
                     return (
-                      <FilmographyItem key={movie.id} id={movie.id} name={movie.title} meta={movie.job} date={movie.release_date} />
+                      <FilmographyItem key={movie.credit_id} id={movie.id} name={movie.title} meta={movie.job} date={movie.release_date} />
                     );
                   }
                   return null;
