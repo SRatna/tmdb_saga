@@ -30,6 +30,9 @@ function* searchMovie({ name }) {
       error: 'Movie could not be found.',
       movies: {}
     };
+    if (response === 'connection lost') {
+      data = { ...data, error: 'No internet connection.', movies: {} };
+    }
     if (response.results) {
       if (response.results.length > 0) {
         data = { ...data, error: null, movies: response.results };

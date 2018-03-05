@@ -11,5 +11,5 @@ export const fetchData = (url) => {
           response: false
         };
       }
-    }).catch(e => console.log(e));
+    }).catch(() => 'connection lost');
 };
