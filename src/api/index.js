@@ -5,7 +5,8 @@ import { OMDB_API_KEY, TMDB_API_KEY } from './config';
 import { fetchData } from './helper';
 
 export const getMovie = (movieName) => {
-  const url = `http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&t=${movieName}`;
+  // const url = `http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&t=${movieName}`;
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&query=${movieName}`;
   return fetchData(url);
 };
 
