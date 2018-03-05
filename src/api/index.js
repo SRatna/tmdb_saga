@@ -1,7 +1,7 @@
 /**
  * Created by sushanta on 2/1/18.
  */
-import { OMDB_API_KEY, TMDB_API_KEY } from './config';
+import { TMDB_API_KEY } from './config';
 import { fetchData } from './helper';
 
 export const getMovie = (movieName) => {
