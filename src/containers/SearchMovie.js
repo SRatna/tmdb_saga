@@ -12,6 +12,7 @@ let SearchMovie = ({ onMovieRequest, movieFetchStatus }) => {
       let movieName = e.target.value;
       if (movieName === '') return;
       e.target.value = '';
+      e.target.blur();
       onMovieRequest(movieName);
     }
   };
