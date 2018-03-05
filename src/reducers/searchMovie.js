@@ -2,7 +2,7 @@
  * Created by sushanta on 2/5/18.
  */
 let initialState = {
-  movie: {},
+  movies: {},
   response: null,
   error: null,
   movieFetchStatus: null,
@@ -11,19 +11,15 @@ let initialState = {
 const searchMovie = (state = initialState, action) => {
   switch (action.type) {
     case 'MOVIE_FETCH_SUCCESS':
-      const movie = action.movie;
-      const response = movie.Response;
-      if (response === 'True') {
+      if (action.error === null) {
         return {
-          ...state, response: true, error: null, movie, movieFetchStatus: 'fetched'
+          ...state, response: true, error: null, movies: action.movies, movieFetchStatus: 'fetched'
+        }
+      } else {
+        return {
+          ...state, response: false, error: action.error, movies: {}, movieFetchStatus: 'fetched'
         }
       }
-      if (response === 'False') {
-        return {
-          ...state, response: false, error: movie.Error, movie: {}, movieFetchStatus: 'fetched'
-        }
-      }
-      break;
     case 'MOVIE_FETCHING':
       return {
         ...state, movieFetchStatus: 'fetching'

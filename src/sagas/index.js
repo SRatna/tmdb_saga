@@ -25,8 +25,17 @@ import {
 function* searchMovie({ name }) {
   try {
     yield put(movieFetching());
-    const movie = yield call(getMovie, name);
-    yield put(movieFetchSuccess(movie));
+    const response = yield call(getMovie, name);
+    let data = {
+      error: 'Movie could not be found.',
+      movies: {}
+    };
+    if (response.results) {
+      if (response.results.length > 0) {
+        data = { ...data, error: null, movies: response.results };
+      }
+    }
+    yield put(movieFetchSuccess(data));
   } catch (err) {
     console.log(err);
   }
