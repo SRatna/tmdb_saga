@@ -12,7 +12,7 @@ class Movie extends React.Component {
   }
 
   render() {
-    let {movie, error, response, movieFetchStatus} = this.props;
+    let {movies, error, response, movieFetchStatus} = this.props;
     if (movieFetchStatus === 'fetching') return (
       <LoadingMsg />
     );
@@ -23,13 +23,21 @@ class Movie extends React.Component {
       </Message>
     );
     return (
-      <Segment raised>
-        <h3>{movie.Title}</h3>
-        <hr/>
-        <img src={movie.Poster} alt={movie.Title}/>
-        <p>{movie.Plot}</p>
-        <Link style={{color: 'white'}} to={'/movie/' + movie.imdbID}><Button primary>View Details</Button></Link>
-      </Segment>
+      <div style={{marginTop: '10px'}}>
+        {
+          movies.map(movie => (
+            <Segment raised key={movie.id}>
+              <h3>{movie.title}</h3>
+              <hr/>
+              {movie.poster_path &&
+              <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title}/>}
+              <h4>Overview</h4>
+              <p>{movie.overview}</p>
+              <Link style={{color: 'white'}} to={'/movie/' + movie.id}><Button primary>View Details</Button></Link>
+            </Segment>
+          ))
+        }
+      </div>
     )
   }
 }

@@ -6,9 +6,9 @@ export const searchMovieRequest = (name) => ({
   name
 });
 
-export const movieFetchSuccess = (movie) => ({
+export const movieFetchSuccess = ({ error, movies }) => ({
   type: 'MOVIE_FETCH_SUCCESS',
-  movie
+  error, movies
 });
 
 export const movieFetching = () => ({
