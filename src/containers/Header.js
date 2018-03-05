@@ -9,7 +9,7 @@ import { Container, Menu } from 'semantic-ui-react';
 
 let Header = ({ onLogoutBtnClick }) => {
   return (
-    <Menu fixed='top' inverted>
+    <Menu fixed='top' inverted style={{padding: '4px', backgroundColor: 'rgb(42, 167, 202)'}}>
       <Container>
         <Menu.Item header>
           <Link to='/'>TheMovieDB</Link>
