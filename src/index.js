@@ -8,6 +8,7 @@ import createSagaMiddleware from 'redux-saga'
 import saga from './sagas';
 import 'semantic-ui-css/semantic.min.css';
 import './index.css';
+import registerServiceWorker from './registerServiceWorker';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
@@ -21,3 +22,4 @@ render(
   </Provider>,
   document.getElementById('root')
 );
+registerServiceWorker();
