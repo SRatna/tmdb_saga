@@ -12,7 +12,7 @@ let Header = ({ onLogoutBtnClick }) => {
     <Menu fixed='top' inverted>
       <Container>
         <Menu.Item header>
-          <Link to='/'>OMDB SAGA</Link>
+          <Link to='/'>TheMovieDB</Link>
         </Menu.Item>
         <Menu.Item><Link to='/'>Home</Link></Menu.Item>
         <Menu.Item><Link to='/about'>About Us</Link></Menu.Item>
