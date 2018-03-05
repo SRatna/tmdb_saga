@@ -16,9 +16,9 @@ let Header = ({ onLogoutBtnClick }) => {
         </Menu.Item>
         <Menu.Item><Link to='/'>Home</Link></Menu.Item>
         <Menu.Item><Link to='/about'>About Us</Link></Menu.Item>
-        <Menu.Menu position='right'>
-          <Menu.Item name='logout' onClick={() => onLogoutBtnClick()} />
-        </Menu.Menu>
+        {/*<Menu.Menu position='right'>*/}
+          {/*<Menu.Item name='logout' onClick={() => onLogoutBtnClick()} />*/}
+        {/*</Menu.Menu>*/}
       </Container>
     </Menu>
   );
