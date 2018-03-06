@@ -2,18 +2,18 @@
  * Created by sushanta on 2/1/18.
  */
 import React from 'react';
-import { searchMovieRequest } from '../actions';
 import { connect } from 'react-redux';
 import { Input } from 'semantic-ui-react'
+import { withRouter } from 'react-router-dom';
 
-let SearchMovie = ({ onMovieRequest, movieFetchStatus }) => {
+let SearchMovie = ({ movieFetchStatus, history }) => {
   let searchMovie = (e) => {
     if (e.key === 'Enter') {
       let movieName = e.target.value;
       if (movieName === '') return;
       e.target.value = '';
       e.target.blur();
-      onMovieRequest(movieName);
+      history.push(`/${movieName}`);
     }
   };
   return (
@@ -27,7 +27,4 @@ const mapStateToProps = state => {
     movieFetchStatus: state.searchMovie.movieFetchStatus
   }
 };
-const mapDispatchToProps = {
-  onMovieRequest: searchMovieRequest
-};
-export default connect(mapStateToProps, mapDispatchToProps)(SearchMovie);
+export default withRouter(connect(mapStateToProps)(SearchMovie));
