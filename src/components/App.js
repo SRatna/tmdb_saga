@@ -15,8 +15,8 @@ let App = () => {
       <ScrollToTop>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/:query" component={SearchResult} />
-          <Route path="/about" component={About} />
+          <Route exact path="/about-us" component={About} />
+          <Route path="/:query" component={SearchResult} />
           <Route path="/movie/:id" component={MovieDetails} />
           <Route path="/person/:id" component={PersonDetails} />
           <Route path="/login" component={Login} />
