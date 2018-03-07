@@ -77,3 +77,11 @@ export const resetPersonDetails = () => ({
 export const fetchNowPlayingMovies = () => ({
   type: 'FETCH_NOW_PLAYING_MOVIES'
 });
+
+export const nowowPlayingMoviesFetching = () => ({
+  type: 'NOW_PLAYING_MOVIES_FETCHING'
+});
+
+export const fetchNowPlayingMoviesDone = (movies, error) => ({
+  type: 'FETCH_NOW_PLAYING_MOVIES_DONE', movies, error
+});
