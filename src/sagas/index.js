@@ -9,7 +9,8 @@ import {
   getMovieCompleteFacts,
   getMovieVideos,
   getMovieCastAndCrew,
-  getPersonDetails
+  getPersonDetails,
+  getNowPlayingMovies
 } from '../api';
 import {
   movieFetchSuccess,
@@ -19,7 +20,9 @@ import {
   movieFactsFetchSuccess,
   movieVideosFetchSuccess,
   movieCastAndCrewFetchSuccess,
-  personDetailsFetchSuccess
+  personDetailsFetchSuccess,
+  nowPlayingMoviesFetching,
+  fetchNowPlayingMoviesDone
 } from '../actions';
 
 function* searchMovie({ name }) {
@@ -112,11 +115,35 @@ function* fetchPersonDetails({ id }) {
   }
 }
 
+function* fetchNowPlayingMovies() {
+  try {
+    yield put(nowPlayingMoviesFetching());
+    const response = yield call(getNowPlayingMovies);
+    let data = {
+      error: 'No Movies found.',
+      movies: {}
+    };
+    if (response === 'connection lost') {
+      data = { ...data, error: 'No internet connection.', movies: {} };
+    }
+    if (response.results) {
+      if (response.results.length > 0) {
+        data = { ...data, error: null, movies: response.results };
+      }
+    }
+    yield put(fetchNowPlayingMoviesDone(data));
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+
 export default function* watcher() {
   yield all([
     takeLatest('SEARCH_MOVIE_REQUEST', searchMovie),
     takeLatest('USER_LOGIN', loginUser),
     takeLatest('FETCH_MOVIE_DETAILS', fetchMovieDetails),
-    takeLatest('FETCH_PERSON_DETAILS', fetchPersonDetails)
+    takeLatest('FETCH_PERSON_DETAILS', fetchPersonDetails),
+    takeLatest('FETCH_NOW_PLAYING_MOVIES', fetchNowPlayingMovies)
   ]);
 }
