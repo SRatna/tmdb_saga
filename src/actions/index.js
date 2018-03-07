@@ -73,3 +73,7 @@ export const personDetailsFetchSuccess = (person) => ({
 export const resetPersonDetails = () => ({
   type: 'RESET_PERSON_DETAILS'
 });
+
+export const fetchNowPlayingMovies = () => ({
+  type: 'FETCH_NOW_PLAYING_MOVIES'
+});
