@@ -82,6 +82,6 @@ export const nowPlayingMoviesFetching = () => ({
   type: 'NOW_PLAYING_MOVIES_FETCHING'
 });
 
-export const fetchNowPlayingMoviesDone = (movies, error) => ({
+export const fetchNowPlayingMoviesDone = ({ movies, error }) => ({
   type: 'FETCH_NOW_PLAYING_MOVIES_DONE', movies, error
 });
