@@ -4,6 +4,7 @@
 let initialState = {
   movies: {},
   error: null,
+  response: null,
   fetchStatus: null,
 };
 
