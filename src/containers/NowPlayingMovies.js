@@ -1,17 +1,9 @@
 /**
  * Created by sushanta on 3/7/18.
  */
-import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Movie from '../components/Movie';
 
-class NowPlayingMovies extends Component {
-  componentDidMount() {
+const mapStateToProps = state => state.nowPlayingMovies;
 
-  }
-  render() {
-    return (
-      <div>sdf</div>
-    )
-  }
-}
-
-export default NowPlayingMovies;
+export default connect(mapStateToProps)(Movie);
