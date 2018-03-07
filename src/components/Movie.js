@@ -8,8 +8,8 @@ import LoadingMsg from './LoadingMsg';
 
 class Movie extends React.Component {
   render() {
-    let {movies, error, response, movieFetchStatus} = this.props;
-    if (movieFetchStatus === 'fetching') return (
+    let { movies, error, response, fetchStatus } = this.props;
+    if (fetchStatus === 'fetching') return (
       <LoadingMsg />
     );
     if (response === null) return <div></div>;
