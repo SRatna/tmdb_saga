@@ -7,10 +7,6 @@ import { Link } from 'react-router-dom';
 import LoadingMsg from './LoadingMsg';
 
 class Movie extends React.Component {
-  componentWillMount() {
-    this.props.onPageLoadResetSearchedMovie();
-  }
-
   render() {
     let {movies, error, response, movieFetchStatus} = this.props;
     if (movieFetchStatus === 'fetching') return (

@@ -56,10 +56,6 @@ export const resetMovieDetails = () => ({
   type: 'RESET_MOVIE_DETAILS'
 });
 
-export const resetSearchedMovie = () => ({
-  type: 'RESET_SEARCHED_MOVIE'
-});
-
 export const fetchPersonDetails = (id) => ({
   type: 'FETCH_PERSON_DETAILS',
   id
