@@ -5,7 +5,7 @@ let initialState = {
   movies: {},
   response: null,
   error: null,
-  movieFetchStatus: null,
+  fetchStatus: null,
 };
 
 const searchMovie = (state = initialState, action) => {
@@ -13,16 +13,16 @@ const searchMovie = (state = initialState, action) => {
     case 'MOVIE_FETCH_SUCCESS':
       if (action.error === null) {
         return {
-          ...state, response: true, error: null, movies: action.movies, movieFetchStatus: 'fetched'
+          ...state, response: true, error: null, movies: action.movies, fetchStatus: 'fetched'
         }
       } else {
         return {
-          ...state, response: false, error: action.error, movies: {}, movieFetchStatus: 'fetched'
+          ...state, response: false, error: action.error, movies: {}, fetchStatus: 'fetched'
         }
       }
     case 'MOVIE_FETCHING':
       return {
-        ...state, movieFetchStatus: 'fetching'
+        ...state, fetchStatus: 'fetching'
       };
     case 'RESET_SEARCHED_MOVIE':
     case 'LOGOUT_USER':
