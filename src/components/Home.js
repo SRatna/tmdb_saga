@@ -3,27 +3,16 @@
  */
 import React from 'react';
 import SearchMovie from '../containers/SearchMovie';
-import ShowMovie from '../containers/ShowMovie';
 import Header from '../containers/Header';
+import NowPlayingMovies from '../containers/NowPlayingMovies';
 import { Container } from 'semantic-ui-react'
-import { searchMovieRequest } from '../actions';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { fetchNowPlayingMovies } from '../actions';
+import './Home.css';
 
 class Home extends React.Component {
   componentDidMount() {
-    const { onMovieRequest, match } = this.props;
-    let movieName = match.params.query;
-    if (movieName) {
-      onMovieRequest(movieName);
-    }
-  }
-  componentWillReceiveProps(props) {
-    const { onMovieRequest, match } = props;
-    let movieName = match.params.query;
-    if (movieName) {
-      onMovieRequest(movieName);
-    }
+    this.props.fetchNowPlayingMovies();
   }
   render() {
     return (
@@ -31,7 +20,8 @@ class Home extends React.Component {
         <Header />
         <Container text style={{ marginTop: '4em' }}>
           <SearchMovie />
-          <ShowMovie />
+          <span className="now-playing-title">Now Playing Movies</span>
+          <NowPlayingMovies />
         </Container>
       </div>
     );
@@ -39,6 +29,7 @@ class Home extends React.Component {
 }
 
 const mapDispatchToProps = {
-  onMovieRequest: searchMovieRequest
+  fetchNowPlayingMovies
 };
-export default withRouter(connect(null, mapDispatchToProps)(Home));
+
+export default connect(null, mapDispatchToProps)(Home);

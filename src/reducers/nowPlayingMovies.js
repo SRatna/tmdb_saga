@@ -1,16 +1,16 @@
 /**
- * Created by sushanta on 2/5/18.
+ * Created by sushanta on 3/7/18.
  */
 let initialState = {
   movies: {},
-  response: null,
   error: null,
+  response: null,
   fetchStatus: null,
 };
 
-const searchMovie = (state = initialState, action) => {
+const nowPlayingMovies = (state = initialState, action) => {
   switch (action.type) {
-    case 'MOVIE_FETCH_SUCCESS':
+    case 'FETCH_NOW_PLAYING_MOVIES_DONE':
       if (action.error === null) {
         return {
           ...state, response: true, error: null, movies: action.movies, fetchStatus: 'fetched'
@@ -20,11 +20,10 @@ const searchMovie = (state = initialState, action) => {
           ...state, response: false, error: action.error, movies: {}, fetchStatus: 'fetched'
         }
       }
-    case 'MOVIE_FETCHING':
+    case 'NOW_PLAYING_MOVIES_FETCHING':
       return {
         ...state, fetchStatus: 'fetching'
       };
-    case 'RESET_SEARCHED_MOVIE':
     case 'LOGOUT_USER':
       return {
         ...state, ...initialState
@@ -33,4 +32,4 @@ const searchMovie = (state = initialState, action) => {
       return state
   }
 };
-export default searchMovie;
+export default nowPlayingMovies;

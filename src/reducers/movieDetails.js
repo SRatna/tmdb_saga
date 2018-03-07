@@ -41,7 +41,6 @@ const movieDetails = (state = initialState, action) => {
         ...state, movieCast: action.movieCastAndCrew.cast, movieCrew: action.movieCastAndCrew.crew
       };
     case 'LOGOUT_USER':
-    case 'RESET_MOVIE_DETAILS':
       return {
         ...state, ...initialState
       };

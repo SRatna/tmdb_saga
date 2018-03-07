@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 // import PrivateRoute from '../containers/PrivateRoute';
 import Home from './Home';
+import SearchResult from './SearchResult';
 import About from './About';
 import ScrollToTop from './ScrollToTop';
 import Login from '../containers/Login';
@@ -13,11 +14,12 @@ let App = () => {
     <Router>
       <ScrollToTop>
         <Switch>
-          <Route exact path="/:query?" component={Home} />
-          <Route path="/about" component={About} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about-us" component={About} />
           <Route path="/movie/:id" component={MovieDetails} />
           <Route path="/person/:id" component={PersonDetails} />
           <Route path="/login" component={Login} />
+          <Route exact path="/:query" component={SearchResult} />
         </Switch>
       </ScrollToTop>
 

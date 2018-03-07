@@ -1,0 +1,9 @@
+.now-playing-title {
+    text-align: center;
+    display: block;
+    border: 3px solid rgb(42, 167, 202);
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: -3px 5px 2px 0px rgb(42, 167, 202);
+}

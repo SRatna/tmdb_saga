@@ -15,7 +15,7 @@ let Header = ({ onLogoutBtnClick }) => {
           <Link to='/'>TheMovieDB</Link>
         </Menu.Item>
         <Menu.Item><Link to='/'>Home</Link></Menu.Item>
-        <Menu.Item><Link to='/about'>About Us</Link></Menu.Item>
+        <Menu.Item><Link to='/about-us'>About Us</Link></Menu.Item>
         {/*<Menu.Menu position='right'>*/}
           {/*<Menu.Item name='logout' onClick={() => onLogoutBtnClick()} />*/}
         {/*</Menu.Menu>*/}

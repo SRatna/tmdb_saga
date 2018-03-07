@@ -48,3 +48,8 @@ export const getPersonDetails = (id) => {
   const url = `https://api.themoviedb.org/3/person/${id}?api_key=${TMDB_API_KEY}&append_to_response=movie_credits`;
   return fetchData(url);
 };
+
+export const getNowPlayingMovies = () => {
+  const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${TMDB_API_KEY}`;
+  return fetchData(url);
+};
